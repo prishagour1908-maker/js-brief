@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="output()">Click to show output!</button>
+    <div id="1">Player Name:-</div>
+    <div id="2">Player Score:-</div>
+    <div id="3">Player Game:-</div>
+    <div id="4">Player Record:-</div>
+    <div id="5">Player Rank Badge:-</div>
+    <div id="6">Time of day greeting:-</div>
+    <div id="7">Star Trail:-</div>
+    <div id="8">Bonus:-</div>
+    <div id="9">Streak:-</div>
+    <script>
+        let game = "Minecraft";
+       let rank;
+let myScore = 75;
+if (myScore >= 80) {
+rank = "Gold";
+} else if (myScore >= 50) {
+rank = "Silver";
+} else {
+rank = "Bronze";
+}
+let record2;
+let record = 76;
+if (record >= 80){
+    record2 = "Very Good";
+}else if(record >= 50){
+    record2 = "above average";
+} else {
+    record2 = "can do better";
+}
+let mainhour;
+let hour = new Date().getHours();
+if (hour <= 12){
+    mainhour = "good morning!";
+ }
+else if (hour <= 17){
+    mainhour = "good afternoon!";
+ }
+ else {
+    mainhour = "good evening!";
+ }
+
+let stars = "";
+let count = 0;
+while (count < 5) {
+stars = stars + "* ";
+count = count + 1;
+}
+
+ let bonus = null;    
+let team; 
+
+
+
+        
+        
+     
+
+        function output(){
+        document.getElementById("1").innerHTML = "John";
+        document.getElementById("2").innerHTML = myScore;
+        document.getElementById("3").innerHTML = game;
+        document.getElementById("4").innerHTML = record2;
+        document.getElementById("5").innerHTML = rank;
+        document.getElementById("6").innerHTML = mainhour;
+        document.getElementById("7").innerHTML = stars;
+        document.getElementById("8").innerHTML = bonus;
+        document.getElementById("9").innerHTML = team;
+
+        }
+    </script>
+</body>
+</html>
