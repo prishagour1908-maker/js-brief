@@ -1,0 +1,142 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>BIRTHDAY</title> 
+  <link href="//cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
+  <style> 
+    body{ 
+      background-image: linear-gradient(to right, rgb(243, 181, 191),rgb(224, 132, 252)); 
+      text-align: center; 
+      font-family: cursive; 
+      font-size: 35px; 
+    } 
+    .cake-container { 
+      font-size: 3rem; 
+      text-align: center; 
+      background: #FFF5EE; 
+      padding: 20px; 
+      border-radius: 15px; 
+      display: inline-block; 
+    } 
+    .celebration-btn { 
+      background: linear-gradient(135deg, #FFD700 0%, #FF4081 100%); 
+      color: #FFFFFF; 
+      font-family: cursive; 
+      font-size: 40px; 
+      padding: 14px 28px; 
+      border-radius: 50px; 
+      cursor: pointer; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); 
+    } 
+    .celebration-btn:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6); 
+      filter: brightness(1.05); 
+    } 
+    .celebration-btn:active { 
+      transform: translateY(-1px); 
+      box-shadow: 0 3px 10px rgba(255, 64, 129, 0.4); 
+    } 
+    .output{
+    background: linear-gradient(135deg, #6b85e3 0%, #0fc6da 100%); 
+      color: #FFFFFF; 
+      font-family: cursive; 
+      font-size: 40px; 
+      padding: 14px 28px; 
+      border-radius: 50px; 
+      cursor: pointer; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+    }
+    .output:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6); 
+      filter: brightness(1.05); 
+    } 
+    .output:active { 
+      transform: translateY(-1px); 
+      box-shadow: 0 3px 10px rgba(255, 64, 129, 0.4); 
+    } 
+  </style> 
+</head> 
+<body> 
+  <br> 
+  <h1><marquee>🎉🎁🎂My Birthday Countdown Page!🎂🎁🎉</marquee></h1> 
+  <div class="cake-container"> 
+    <span class="cake">🎂</span> 
+  </div> 
+  <br><hr><br>
+  <button class="celebration-btn" onclick="triggerCelebration()"> Join the Party! 🎂 </button> 
+  <br><hr><br> 
+  <div class="container p-2 para"> 
+    <p>Click On This Button Below To Find More Details About My Birthday!</p> 
+  </div> 
+  <br><br> 
+  <button class="output" onclick="bdayoutput()">Click Me To Find Details!</button> 
+  <br><hr><br> 
+  <div class="details"> 
+    <div id="name" class="container p-3">Birthday Person's Name: </div> 
+    <div id="date" class="container p-3">Birthday: </div> 
+    <div id="gift" class="container p-3">Birthday Gift: </div> 
+    <div id="cake" class="container p-3">Birthday Cake Flavour: </div> 
+    <div id="countdown" class="container p-3">Birthday Countdown: </div> 
+  </div> 
+  
+  <script> 
+    function triggerCelebration() { 
+      alert("🎉 Happy Birthday! Let's celebrate!"); 
+    } 
+    
+    let gift = null; 
+    let name = "Prisha Gour"; 
+    let flavour =""; 
+    let cake = "Chocolate"; 
+ 
+    if (cake === "vanilla") { 
+      flavour = "Yay! It Is Vanilla!"; 
+    } else if (cake === "Chocolate") { 
+      flavour = "Yay! It Is Chocolate!"; 
+    } else { 
+      flavour = "Yay! It Is Red Velvet!"; 
+    } 
+    
+    const birthdaymonth = 8; 
+    const birthdaydate = 19; 
+    let today = new Date(); 
+    let currentyear = today.getFullYear(); 
+    let birthday = new Date(currentyear, birthdaymonth -1, birthdaydate ); 
+    
+    if (today > birthday) {
+      birthday.setFullYear(currentyear + 1);
+    }
+    
+    let timedifference = birthday-today; 
+   
+    let daysleft = Math.ceil(timedifference / (1000*60*60*24)); 
+    
+    let message = "";
+    if (daysleft === 0 || daysleft === 365){ 
+      message = "Happy Birthday "+name+" It is your special day! Have Fun!"; 
+    } else if(daysleft <= 30){ 
+      message = "Hey! Your Birthday is almost here! "; 
+    } else{ 
+      message = "Hey! Your Birthday will come in a while..."; 
+    } 
+    
+    function bdayoutput(){ 
+      document.getElementById("name").innerHTML = name; 
+      document.getElementById("date").innerHTML = birthday; 
+      document.getElementById("gift").innerHTML = gift; 
+      document.getElementById("cake").innerHTML = flavour; 
+            document.getElementById("countdown").innerHTML = message; 
+    } 
+  </script> 
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
+</body> 
+</html>
